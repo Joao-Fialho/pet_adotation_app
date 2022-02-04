@@ -9,7 +9,7 @@ class CardPerfil extends StatelessWidget {
       {Key? key,
       this.height,
       this.width,
-      this.color = Colors.yellow,
+      this.color = Colors.black,
       this.link = ''})
       : super(key: key);
 

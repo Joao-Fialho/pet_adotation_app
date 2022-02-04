@@ -29,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
             Align(
               alignment: Alignment.topRight,
               child: Container(
-                height: constraints.maxHeight * 0.1,
+                height: constraints.maxHeight * 0.095,
                 width: constraints.maxWidth * 0.95,
                 // color: Colors.amber,
                 child: LayoutBuilder(builder: (context, constraints) {
@@ -39,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
                       const FilterButton(),
                       Container(
                         // color: Colors.red,
-                        width: constraints.maxWidth * 0.75,
+                        width: constraints.maxWidth * 0.77,
                         child: ListViewCardsSpecies(),
                       ),
                     ],
@@ -47,6 +47,7 @@ class _DashboardState extends State<Dashboard> {
                 }),
               ),
             ),
+            //////
             Container(
               height: constraints.maxHeight * 0.06,
             ),

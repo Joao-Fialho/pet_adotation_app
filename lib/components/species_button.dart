@@ -4,10 +4,14 @@ import 'package:flutter/rendering.dart';
 class SpeciesButton extends StatefulWidget {
   final String link;
   final String species;
+  final bool isSelected;
+  final void Function()? onTap;
   const SpeciesButton({
     Key? key,
     this.link = '',
     this.species = 'Especie',
+    this.isSelected = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -15,22 +19,17 @@ class SpeciesButton extends StatefulWidget {
 }
 
 class _SpeciesButtonState extends State<SpeciesButton> {
-  bool isTap = true;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isTap = !isTap;
-        });
-      },
+      onTap: widget.onTap,
       child: Container(
-          width: size.width * 0.30,
+          width: size.width * 0.3,
           decoration: BoxDecoration(
-            color: isTap ? Colors.white : Colors.red,
-            borderRadius: BorderRadius.circular(size.width * 0.05),
+            color: widget.isSelected ? Colors.red : Colors.white,
+            borderRadius: BorderRadius.circular(size.width * 0.065),
           ),
           child: LayoutBuilder(builder: (context, constraints) {
             return Row(
@@ -41,7 +40,7 @@ class _SpeciesButtonState extends State<SpeciesButton> {
                   width: constraints.maxWidth * 0.23,
                   child: Image.asset(
                     widget.link,
-                    color: Colors.grey[600],
+                    color: widget.isSelected ? Colors.white : Colors.grey[500],
                   ),
                 ),
                 Container(
@@ -51,7 +50,12 @@ class _SpeciesButtonState extends State<SpeciesButton> {
                       child: FittedBox(
                     child: Text(
                       widget.species,
-                      style: TextStyle(fontSize: constraints.maxWidth * 0.2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: constraints.maxWidth * 0.2,
+                          color: widget.isSelected
+                              ? Colors.white
+                              : Colors.grey[800]),
                     ),
                   )),
                 ),

@@ -40,21 +40,28 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 0,
           toolbarHeight: size.height * 0.105,
           backgroundColor: Colors.white,
-          leading: const Icon(
-            Icons.menu,
-            size: 33,
-            color: Colors.grey,
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.menu_rounded,
+              size: 40,
+              color: Colors.grey,
+            ),
           ),
           centerTitle: true,
           title: Column(
             children: [
               const Text(
                 'Location',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.grey, fontSize: 17),
               ),
               Text(
                 'Cameron St., Boston',
-                style: TextStyle(color: Colors.grey[800]),
+                style: TextStyle(
+                  color: Colors.grey[800],
+                  fontFamily: 'BalsamiqSans',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
@@ -64,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Image.asset('assets/image/mulher_empoderada.jpg').image,
             ),
             Container(
-              width: 18,
+              width: 20,
             ),
           ],
         ),
